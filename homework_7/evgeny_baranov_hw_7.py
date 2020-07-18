@@ -7,7 +7,7 @@ def get_season(number):
     months = ('Winter', 'Spring', 'Summer', 'Autumn')
     notice = 'The month numbered'
     if number in [12, 1, 2]:
-        return f'{notice} {number} {months[0]}'
+        return f'{notice} {number} {months[0]}' # noqa
     elif number in [3, 4, 5]:
         return f'{notice} {number} {months[1]}'
     elif number in [6, 7, 8]:
@@ -74,9 +74,12 @@ def get_rectangle_data(a):
         d = a * sqr_two
         s = a * a
         p = a * 4
-        return f'Perimeter of square P = {("%.3f" % p) if isinstance(p, float) else p}\n' \
-               f'Area of square S = {("%.3f" % s) if isinstance(s, float) else s}\n' \
-               f'Diagonal of square d = {("%.3f" % d) if isinstance(d, float) else d}'
+        return f'Perimeter of square P = ' \
+                f'{("%.3f" % p) if isinstance(p, float) else p}\n' \
+                f'Area of square S = ' \
+                f'{("%.3f" % s) if isinstance(s, float) else s}\n' \
+                f'Diagonal of square d = ' \
+                f'{("%.3f" % d) if isinstance(d, float) else d}'
     else:
         return 'Only work with numbers!'
 
@@ -95,4 +98,3 @@ print('\n')
 print(get_rectangle_data('abc'))
 print('************************************')
 # ***********************************
-#('%.3f' % i)
