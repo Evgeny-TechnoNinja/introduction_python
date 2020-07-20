@@ -34,16 +34,8 @@ print('\n')
 
 # ******************* task 2 ( dict, word quantity)
 def converter(string, separator):
-    list_temp = string.split(separator)
-    i = 0
-    while i < len(list_temp):
-        list_temp[i] = list_temp[i].strip()
-        i += 1
-    dict_results = dict.fromkeys(list_temp, 0)
-    for current_key_dict in dict_results.keys():
-        for current_value_list in list_temp:
-            if current_value_list == current_key_dict:
-                dict_results[current_key_dict] += 1
+    list_temp = [current_value.strip() for current_value in string.split(separator)] # noqa
+    dict_results = {key: list_temp.count(key) for key in list_temp}
     return dict_results
 
 
