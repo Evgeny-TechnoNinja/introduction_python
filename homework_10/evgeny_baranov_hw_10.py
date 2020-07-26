@@ -12,7 +12,6 @@ def formatting_datetime(str_datetime):
         print('The input string does not match the format!')
     except TypeError:
         print('Working with a string in the correct format')
-    return
 
 
 str_date_example_one = 'Feb 12 2019 2:41PM'
@@ -39,13 +38,10 @@ def is_prime(custom_num):
         if custom_num in [0, 1]:
             return False
         else:
-            div_count = 0
-            for current_num in range(1, custom_num + 1):
-                if custom_num % current_num == 0:
-                    div_count += 1
-                    if div_count > 2:
-                        return False
-            return True
+            div_init_num = 2
+            while custom_num % div_init_num != 0:
+                div_init_num += 1
+            return div_init_num == custom_num
     else:
         print('Работаю только с числами!')
 
