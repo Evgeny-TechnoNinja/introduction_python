@@ -1,4 +1,6 @@
-import string
+# Evgeny Baranov
+# Homework 12
+
 import random
 import zipfile
 
@@ -25,22 +27,25 @@ def hack_archive(file_name):
     wrong_passwords = []  # список паролей, которые не подошли
     tries = 0  # колличество неудачных попыток
 
+    def generate_num(num_start, num_end, row_length):
+        str_result = ''
+        list_sing = [str(v) for v in range(num_start, num_end)]
+        for i in range(row_length):
+            random_sing = random.sample(list_sing, 1)
+            str_result += ''.join(random_sing)
+        return str_result
+
     while True:
-        """
-        Здесь необходимо реализовать: 
-            1. Случайную генерацию пароля, который будет соответствовать условиям:
-                * длина - 4 символа (`PASSWORD_LENGTH`)
-                * допустимые символы пароля - только цифры
-                * type(password) == str
+        password = generate_num(0, 10, PASSWORD_LENGTH)
+        if password not in wrong_passwords:
+            process_result = extract_archive(file_to_open, password)
+            if process_result:
+                break
+            else:
+                tries += 1
+                wrong_passwords.append(password)
 
-            2. Открытие архива со сгенерированым паролем - `extract_archive(file_to_open, password)`
-            При удачном открытии (True) - прервать цикл
-            При неудачи (False) - добавить пароль в список `wrong_passwords` и больше не проверять данный пароль
-
-            3. Счетчий неудачных попыток
-        """
-
-    print(f'Archive {file_name} is hacked. Password - {password}')
+    print(f'Archive {file_name} is hacked. Password - {password}') # noqa
     print(f'Password was found after {tries} tries')
 
 
