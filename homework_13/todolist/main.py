@@ -32,7 +32,7 @@ class TodoList:
                 data = json.load(file)
                 tasks = []
                 for item in data:
-                    tasks.append(Item(item['done'], item['info'], item['last_updated']))
+                    tasks.append(Item(item['done'], item['info'], item['last_updated'])) # noqa
                 return tasks
         except FileNotFoundError:
             return []
@@ -41,7 +41,7 @@ class TodoList:
     def tasks_list(self):
         tasks = ''
         for index, item in enumerate(self.tasks):
-            tasks += f'\n {index}\t {item.done}\t {item.info}\t {item.last_updated}'
+            tasks += f'\n {index}\t {item.done}\t {item.info}\t {item.last_updated}' # noqa
         return tasks
 
     @property
