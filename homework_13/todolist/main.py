@@ -85,10 +85,8 @@ class TodoList:
 
 
 class Notification:
-    def __init__(self):
-        self.show = self.__info
 
-    def __info(self):
+    def info_show(self):
         info_list = ['Добро пожаловать в TODO!', 'В этом листе можно хранить любые запись', # noqa
                 'Доступны такие действия:', '-"Создать задачу"', '-"Добавить задачу"', # noqa
                 '-"Отметить как выполненное"', '-"Отметить как не выполненное"', # noqa
@@ -106,9 +104,8 @@ class Menu:
         self.not_ready_list = not_ready_list
         self.new_task = new_task
         self.app_out = app_out
-        self.show = self.__info
 
-    def __info(self):
+    def info_show(self):
         info_list = ['Меню:', f'Создать задачу - [{self.new_task}]', f'Добавить задачу - [{self.add_task}]', # noqa
             f'Показать не выполненное - [{self.not_ready_list}]', f'Показать список задач - [{self.show_list}]', # noqa
             f'Отметить как "Не выполнено" - [{self.off_task}]', f'Отметить как "Выполнено" -[{self.on_task}]', # noqa
@@ -206,14 +203,14 @@ def main_loop(todo_list):
             if todo_list:
                 print('TODO Лист готов к работе')
                 menu = Menu('add', 'on', 'off', 'show', 'not', 'new', 'out')
-                menu.show()
+                menu.info_show()
                 menu.choice(todo_list)
                 break
 
 
 def main():
     notification = Notification()
-    notification.show()
+    notification.info_show()
     todo_list = TodoList('default_list', 'default_user')
     main_loop(todo_list)
 
