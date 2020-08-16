@@ -2,17 +2,16 @@
 # Homework 15 (Geometric figures)
 
 class Figure:
-    def __init__(self, unit_a=0, unit_b=0, unit_c=0, unit_d=0):
-        self.unit_d = unit_d
-        self.unit_c = unit_c
-        self.unit_b = unit_b
+    def __init__(self, unit_a=0, unit_b=0):
         self.unit_a = unit_a
+        self.unit_b = unit_b
 
 
 class Triangle(Figure):
     def __init__(self, name, unit_a, unit_b, unit_c):
-        super().__init__(unit_a, unit_b, unit_c)
+        super().__init__(unit_a, unit_b)
         self.figure_name = name
+        self.unit_c = unit_c
 
     def area_triangle(self):
         sp = (self.unit_a + self.unit_b + self.unit_c) / 2
@@ -26,8 +25,8 @@ class Triangle(Figure):
 
 
 class Square(Figure):
-    def __init__(self, name, unit_a, unit_b, unit_c, unit_d):
-        super().__init__(unit_a, unit_b, unit_c, unit_d)
+    def __init__(self, name, unit_a, unit_b):
+        super().__init__(unit_a, unit_b)
         self.figure_name = name
 
     def area_square(self):
@@ -41,9 +40,7 @@ class Square(Figure):
         return self.__wrong_data()
 
     def __check_square(self):
-        if self.unit_a == self.unit_b and \
-                self.unit_a == self.unit_c and \
-                self.unit_a == self.unit_d:
+        if self.unit_a == self.unit_b:
             return True
 
     def __wrong_data(self):
@@ -51,8 +48,8 @@ class Square(Figure):
 
 
 class Rectangle(Figure):
-    def __init__(self, name, unit_a, unit_b, unit_c, unit_d):
-        super().__init__(unit_a, unit_b, unit_c, unit_d)
+    def __init__(self, name, unit_a, unit_b):
+        super().__init__(unit_a, unit_b)
         self.figure_name = name
 
     def area_rectangle(self):
@@ -66,8 +63,7 @@ class Rectangle(Figure):
         return self.__wrong_data()
 
     def __check_rectangle(self):
-        if self.unit_a == self.unit_c and\
-                self.unit_b == self.unit_d:
+        if self.unit_a != self.unit_b:
             return True
 
     def __wrong_data(self):
@@ -80,12 +76,12 @@ print(f'Figure: {triangle.figure_name}') # noqa
 print(f'S = {triangle.area_triangle()}')
 print(f'P = {triangle.perimeter_triangle()}')
 print('\n')
-square = Square('square', 6, 6, 6, 6)
+square = Square('square', 6, 6)
 print(f'Figure: {square.figure_name}')
 print(f'S = {square.area_square()}')
 print(f'P = {square.perimeter_square()}')
 print('\n')
-rectangle = Rectangle('rectangle', 6, 12, 6, 12)
+rectangle = Rectangle('rectangle', 6, 12)
 print(f'Figure: {rectangle.figure_name}')
 print(f'S = {rectangle.area_rectangle()}')
 print(f'P = {rectangle.perimeter_rectangle()}')
