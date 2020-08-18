@@ -143,7 +143,7 @@ class Tale:
     def scene_meeting_enemy(self, enemy, hero, increase_cunning):
         enemy.speak(f'Привет, Колобок {hero.name}! Я {enemy.name}')  # noqa
         enemy.speak(f'{hero.name}, я тебя съем!!!')
-        hero.speak('Не ещь меня. Я тебе песенку спаю:')
+        hero.speak('Не ешь меня. Я тебе песенку спаю:')
         hero.cunning += increase_cunning
         for value_sing in hero.sing(enemy.name):
             print(value_sing)
