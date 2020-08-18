@@ -186,7 +186,7 @@ class Tale:
                         live_hero_status = self.scene_meeting_enemy(fox, main_hero, 2)  # noqa
                         if not live_hero_status:
                             fox.speak(f'Колобок я тебе хитрей вот моя хитрость {fox.cunning}') # noqa
-                            fox.speak(f'А товоя хитрость {main_hero.cunning}')  # noqa
+                            fox.speak(f'А твоя хитрость {main_hero.cunning}')  # noqa
                             fox.speak(f'Так что колобок {main_hero.name} тебе конец!') # noqa
                             print(f'Колобка съел {fox.name}!')
                             print('Сказки конец!')
